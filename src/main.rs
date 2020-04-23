@@ -2,7 +2,6 @@ use std::env;
 use rocksdb::{DB, ColumnFamilyDescriptor, Options, WriteBatch, IteratorMode};
 use std::time::{SystemTime, UNIX_EPOCH};
 use rand::{Rng, RngCore};
-use lmdb::{Environment, EnvironmentBuilder, Transaction, WriteFlags, Cursor, DatabaseFlags};
 use std::path::Path;
 
 fn main() {
@@ -12,7 +11,6 @@ fn main() {
     } else {
         match arg[1].as_str() {
             "rocksdb" => rocksdb(),
-            "lmdb" => lmdb(),
             "sled" => sled(),
             _ => println!("Invalid entry.")
         }
